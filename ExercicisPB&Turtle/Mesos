@@ -1,0 +1,62 @@
+public class LosMeses {
+    int[] diasAnyo = {31,28,31,30,31,30,31,31,30,31,30,31};
+    int diaActual = 0;
+
+    public static void main(String[] args) {
+        LosMeses lm = new LosMeses(13,5);
+        System.out.println("Tu signo del zodiaco es " + lm.getHoroscopo());
+
+    }
+    LosMeses(int dia, int mes){
+        if (mes > 12 || dia > diasAnyo[mes - 1]){
+            System.out.println("Dia no valido");
+            return;
+        }
+        for (int i = 0; i < mes - 1; i++) {
+            this.diaActual += diasAnyo[i];
+        }
+        this.diaActual += dia;
+    }
+    public String getHoroscopo(){
+        if (diaActual < 19){
+            return "Capricornio";
+        }
+        if (diaActual < 49){
+            return "Acuario";
+        }
+        if (diaActual < 79){
+            return "Piscis";
+        }
+        if (diaActual < 110){
+            return "Aries";
+        }
+        if (diaActual < 140){
+            return "Tauro";
+        }
+        if (diaActual < 171){
+            return "Geminis";
+        }
+        if (diaActual < 201){
+            return "Cancer";
+        }
+        if (diaActual < 233){
+            return "Leo";
+        }
+        if (diaActual < 265){
+            return "Virgo";
+        }
+        if (diaActual < 295){
+            return "Libra";
+        }
+        if (diaActual < 326){
+            return "Escorpio";
+        }
+        if (diaActual < 354){
+            return "Sagitario";
+        }
+        if (diaActual > 355){
+            return "Capricornio";
+        }
+        return "xd";
+    }
+}
