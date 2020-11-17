@@ -1,0 +1,91 @@
+public class Exercicis {
+    static Turtle t = new Turtle(700,700);
+    public static void main(String[] args) {
+        Cuadricula(8);
+        t.show();
+    }
+
+    public static void MallaCuadrats(int cuadres_horitzontal, int cuadres_vertical, int longitud_costat) {
+        //t.goTo(-350,350);
+        t.turnRight(180);
+        for (int i = 0; i < cuadres_vertical * cuadres_horitzontal; i++) {
+
+            if (i != 0 && i % cuadres_vertical == 0){
+                t.turnRight(180);
+                System.out.println(i);
+                t.penDown = false;
+                t.forward(longitud_costat );//longitud_costat * 2 * cuadres_horitzontal);
+                t.turnLeft(90);
+                t.forward(longitud_costat * 2 );
+                t.turnLeft(-90);
+
+                t.penDown = true;
+            }
+
+            for (int j = 0; j < 4; j++) {
+                t.forward(longitud_costat);
+                t.turnRight(90);
+            }
+            t.penDown = false;
+            //t.turnLeft(-90);
+            t.forward(longitud_costat * 2);
+            t.penDown = true;
+
+        }
+    }
+
+        /*
+        t.turnRight(180);
+        int direction = 90;
+        for (int i = 0; i < cuadres_horitzontal * cuadres_vertical ; i++) {
+
+            //CAMBIAR COLUMNA I GIRAR DIRECCIÓ
+            if (i != 0 && i % cuadres_vertical == 0){
+
+
+                direction *= -1;
+                System.out.println(i);
+                t.turnLeft(direction);
+                t.penDown = false;
+                t.forward(longitud_costat * 2);
+                t.turnLeft(direction);
+                t.forward(longitud_costat );
+                t.penDown = true;
+
+            }
+            //CUADRAT
+            for (int j = 0; j < 4; j++) {
+                t.forward(longitud_costat);
+                t.turnRight(90);
+            }
+
+            t.penDown = false;
+            //t.turnLeft(-90);
+            t.forward(longitud_costat * 2);
+            t.penDown = true;
+         */
+    public static void Cuadricula(int sizeM){
+        double Csize = (double) 700 / sizeM;
+
+        t.goTo(-350,350);
+        for (int i = 0; i < sizeM * 2; i++) {
+            t.turnLeft(180);
+            t.forward(700);
+            t.turnLeft(90);
+            t.penDown = false;
+            t.forward(Csize);
+            t.turnLeft(90);
+            t.penDown = true;
+            t.forward(700);
+            if (i % sizeM == sizeM - 1)
+                t.turnRight(90);
+        }
+        // Movements
+
+
+        // Show canvas
+        t.show();
+    }
+
+
+}
