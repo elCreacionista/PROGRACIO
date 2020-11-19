@@ -1,0 +1,26 @@
+   1-Questions:
+● Alguns programes empren «int a[]» enlloc de «int[] a», quina és la diferència?.
+  
+● Per què els índexs en els arrays comencen en 0 i no en 1?
+  
+
+● Què passa si emprem un número negatiu per indexar un array?
+  En java els arrays tenen indexs positius i ens donaria error, "l'index està fora dels bordes"
+● Si «a[]» és un array, per què quan executem «System.out.println(a)» surt un número en
+hexadecimal, com @f432321?
+  Si imprimim cualsevol variable que no sigui de tipus primitiu: int, String, char ens imprimirà la posició de memoria i no el contingut
+  
+● Si creem un array d'enters de 100 posicions, quin valor tindrà cada element, inicialment?
+  Per defecte tendran el valor 0
+    
+    
+    
+    2- Escriu un programa que declara i inicialitza un array a[] de 1000 elements, i intenta accedir a
+l'element 1000. El programa compila? Funciona correctament?
+
+  psvm(){
+    int[] a = new int[1000];
+    a[1000] = 1;
+    //Ens diu que l'array no pot accedir a aquesta posició.
+  }
+  
