@@ -2,7 +2,7 @@
 ● Alguns programes empren «int a[]» enlloc de «int[] a», quina és la diferència?.
   
 ● Per què els índexs en els arrays comencen en 0 i no en 1?
-  
+ 
 
 
 ● Què passa si emprem un número negatiu per indexar un array?
