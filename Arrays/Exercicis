@@ -4,6 +4,7 @@
 ● Per què els índexs en els arrays comencen en 0 i no en 1?
   
 
+
 ● Què passa si emprem un número negatiu per indexar un array?
   En java els arrays tenen indexs positius i ens donaria error, "l'index està fora dels bordes"
 ● Si «a[]» és un array, per què quan executem «System.out.println(a)» surt un número en
