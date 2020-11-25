@@ -11,6 +11,7 @@ public class Caesar {
 
 
     static String cypher(String s, int delta) {
+        int positiu = delta < 0 ? -1 : 1;
         s = s.toUpperCase();
         StringBuilder resultat = new StringBuilder();
         for (int i = 0; i < s.length(); i++) {
@@ -19,9 +20,10 @@ public class Caesar {
                 continue;
             }
             int helper = delta;
-                while ((int)s.charAt(i) + helper > 90){
-                    helper = helper - 26;
+                while ((int)s.charAt(i) + helper > 90 || (int)s.charAt(i) + helper < 65){
+                    helper = helper - (26 * positiu);
                 }
+
             char c = (char)((int)s.charAt(i) + helper);
             resultat.append(c);
         }
@@ -33,6 +35,8 @@ public class Caesar {
     }
 
     static String magic(String s, String ss) {
+        System.out.println(s);
+        System.out.println(ss);
         return "";
     }
 }
