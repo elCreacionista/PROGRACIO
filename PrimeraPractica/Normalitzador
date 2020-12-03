@@ -1,0 +1,24 @@
+public class Normalitzador {
+
+    public static char getChar(int i){
+        return (char) (i + 65);
+    }
+    public static int getInt(char c){
+        return (c - 65);
+    }
+
+    public static char Suma(char a, char b){
+        int ia = getInt(a);
+        int ib = getInt(b);
+        int suma = ia + ib;
+        System.out.println(ia + " + " + ib  + " = " + suma);
+        suma %= 25;
+        return getChar(suma);
+
+
+
+
+
+    }
+
+}
