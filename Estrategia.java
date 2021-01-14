@@ -20,6 +20,22 @@ public enum Estrategia {
                 return "ola";
         }
     }
+    public int getNumber(Estrategia e){
+        switch (e) {
+            case ATAC:
+                return 0;
+            case DEFENSA:
+                return 1;
+            case ENGANY:
+                return 2;
+            case MANIOBRA:
+                return 3;
+
+            default:
+                return 777;
+        }
+    }
+
 }
 enum Rol{
     AGRESIU   (0.50, 0.16, 0.16, 0.16, "Agresiu"),    /** PRIORITZA ATAC*/
