@@ -46,8 +46,8 @@ enum Rol{
     MIXTE (0.375, 0.375, 0.125, 0.125, "Mixte"),      /** PRIORITZA ATAC I DEFENSA*/
     LLADRE(0.125, 0.125, 0.375, 0.375, "Lladre"),     /** PRIORITZA                  ENGANY I MANIOBRA*/
     CLASE1(0.375, 0.125, 0.375, 0.125, "Clase1"),     /** PRIORITZA ATAC           I ENGANY*/
-    CLASE2(0.375, 0.125, 0.125, 0.375, "Clase2");     /** PRIORITZA ATAC                    I MANIOBRA*/
-
+    CLASE2(0.375, 0.125, 0.125, 0.375, "Clase2"),     /** PRIORITZA ATAC                    I MANIOBRA*/
+    EQUILIBRAT(0.25,0.25, 0.25, 0.25, "Equilibrat");
     double ProbAtac;
     double ProbDefensa;
     double ProbEngany;
@@ -74,5 +74,20 @@ enum Rol{
     }
     public String getRol(){
         return this.tipus;
+    }
+    public static Rol randRol(){
+        int rand = (int)Math.floor(Math.random()*9);
+        switch(rand){
+            case 0:return AGRESIU;
+            case 1:return DEFENSIU;
+            case 2:return ENGANYADOR;
+            case 3:return MANIOBRER;
+            case 4:return MIXTE;
+            case 5:return LLADRE;
+            case 6:return CLASE1;
+            case 7:return CLASE2;
+            case 8:return EQUILIBRAT;
+            default:return randRol();
+        }
     }
 }

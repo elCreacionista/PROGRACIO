@@ -32,19 +32,29 @@ public class Combat {
     }
 
     public Jugador Combatre(Jugador j1, Jugador j2){
-
-        while (j1.Vida > 0 && j2.Vida > 0){
+        int jugades = 0;
+        while (j1.Vida > 0 || j2.Vida > 0){
             j1.Makemove();
             j2.Makemove();
             CompararEstrategies(j1, j2);
-            j1.GetStatics();
-            j2.GetStatics();
+
+            jugades++;
+            if (jugades > 10)
+                break;
 
         }
-        if (j1.Vida < 0)
-            return j2;
+        Jugador guanyador;
+        if (j1.Vida > j2.Vida){
+            guanyador = j1;
+        }
         else
-            return j1;
+            guanyador = j2;
+        guanyador.punts += 10;
+        guanyador.victories++;
+        guanyador.PujarNivell();
+        j1.ResetStats();
+        j2.ResetStats();
+        return guanyador;
     }
     public void CompararEstrategies(Jugador j1, Jugador j2){
        int nombrej1 = j1.getNombreEstrategia();
