@@ -1,0 +1,122 @@
+class BigNumber {
+    // Constructor 1
+    public BigNumber(String s) {
+        this.numero = s;
+    }
+    // Constructor 2
+    public BigNumber(BigNumber b) {
+        this.numero = b.numero;
+    }
+
+
+    public static void main(String[] args) {
+        BigNumber bn1 = new BigNumber("2000");
+        BigNumber bn2 = new BigNumber("1");
+        //System.out.println(5195 - 1919);
+        System.out.println(bn1.mult(bn2).numero);
+
+    }
+
+    private int getNumber(char c){
+        return ((int) c) - 48;
+    }
+    private String invertirNumero(String s){
+        StringBuilder resultat = new StringBuilder();
+        int n = s.length() - 1;
+        for (int i = 0; i < s.length(); i++) {
+            resultat.append(s.charAt(n - i));
+        }
+        return resultat.toString();
+    }
+    String numero;
+
+    // Suma
+    BigNumber add(BigNumber other) {
+        boolean PrimerLlarg = this.numero.length() > other.numero.length();
+
+        int tamany = PrimerLlarg ? other.numero.length() : this.numero.length();
+
+        int a, b, llevando = 0;
+
+        StringBuilder resultat = new StringBuilder();
+        for (int i = tamany - 1; i >= 0; i--) {
+            a = this.getNumber(this.numero.charAt(i));
+            b = this.getNumber(other.numero.charAt(i));
+            if (a + b + llevando > 9){
+                resultat.append((a + b + llevando) - 10);
+                llevando = 1;
+            }
+            else {
+                resultat.append((a + b + llevando));
+                llevando = 0;
+            }
+        }
+        if (llevando == 1){
+            resultat.append("1");
+        }
+
+        return new BigNumber(this.invertirNumero(resultat.toString()));
+    }
+
+
+    boolean iszero(){
+        return this.numero.equals("0");
+    }
+    // Multiplica
+    BigNumber mult(BigNumber other) {
+        BigNumber contador = new BigNumber(this);
+        BigNumber resultat = new BigNumber("0000");
+        while (!contador.iszero()){
+            contador = contador.sub(new BigNumber("1"));
+            resultat = resultat.add(other);
+        }
+        return resultat;
+    }
+
+    //Resta
+    BigNumber sub(BigNumber other) {
+
+        int a, b, llevando = 0;
+
+        StringBuilder resultat = new StringBuilder();
+        for (int i = this.numero.length() - 1; i >= 0; i--) {
+            a = this.getNumber(this.numero.charAt(i));
+            b = this.getNumber(other.numero.charAt(i));
+            if ((a - llevando) - b >= 0){
+                resultat.append((a  - llevando) - b);
+                llevando = 0;
+            }
+            else {
+                resultat.append(((a - llevando) - b) + 10);
+                llevando = 1;
+            }
+
+        }
+        if (llevando == 1){
+            resultat.append("1");
+        }
+
+        return new BigNumber(this.invertirNumero(resultat.toString()));
+    }
+
+
+
+     /**
+    // Divideix
+    BigNumber div(BigNumber other) { }
+    // Arrel quadrada
+    BigNumber sqrt() { }
+    // Potència
+    BigNumber power(int n) { }
+    // Factorial
+    BigNumber factorial() { }
+    // MCD. Torna el Màxim comú divisor
+    BigNumber mcd(BigNumber other) { }
+    // Compara dos BigNumber. Torna 0 si són iguals, -1
+// si el primer és menor i torna 1 si el segon és menor
+    public int compareTo(BigNumber other) { }
+    // Torna un String representant el número
+    public String toString() { }
+    // Mira si dos objectes BigNumber són iguals
+    public boolean equals(Object other) { }*/
+}
