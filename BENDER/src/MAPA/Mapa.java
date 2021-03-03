@@ -3,6 +3,7 @@ package MAPA;
 import MAPA.OBJECTES.Buid;
 import MAPA.OBJECTES.Fi;
 import MAPA.OBJECTES.Inversor;
+import MAPA.OBJECTES.Teletransportador;
 
 import java.util.Arrays;
 
@@ -20,14 +21,16 @@ public class Mapa {
         for (int i = 0; i < rows.length; i++) {
             this.mapa[i] = new Casella[rows[i]];
             for (int j = 0; j < rows[i]; j++) {
-                caselles++;
-                switch (mapa.charAt((i * rows.length) + j)) {
+                switch (mapa.charAt(caselles)) {
                     case '#' -> this.mapa[i][j] = new Paret();
                     case 'X' -> this.mapa[i][j] = new Paret();
                     case ' ' -> this.mapa[i][j] = new Terra(new Buid());
                     case 'I' -> this.mapa[i][j] = new Terra(new Inversor());
                     case '$' -> this.mapa[i][j] = new Terra(new Fi());
+                    case 'T' -> this.mapa[i][j] = new Terra(new Teletransportador());
+
                 }
+                caselles++;
             }
         }
         System.out.println(Arrays.deepToString(this.mapa));
@@ -69,4 +72,5 @@ public class Mapa {
             System.out.println("");
         }
     }
+
 }
