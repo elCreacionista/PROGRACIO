@@ -8,6 +8,7 @@ import MAPA.OBJECTES.Teletransportador;
 import java.util.Arrays;
 
 public class Mapa {
+    int[] botpos;
     Casella[][] mapa;
     public Mapa(String mapa){
         this.CrearMapa(mapa);
@@ -23,19 +24,25 @@ public class Mapa {
             for (int j = 0; j < rows[i]; j++) {
                 switch (mapa.charAt(caselles)) {
                     case '#' -> this.mapa[i][j] = new Paret();
-                    case 'X' -> this.mapa[i][j] = new Paret();
+                    case 'X' -> {
+                        this.mapa[i][j] = new Terra(new Buid());
+                        this.botpos = new int[]{i, j};
+                    }
                     case ' ' -> this.mapa[i][j] = new Terra(new Buid());
                     case 'I' -> this.mapa[i][j] = new Terra(new Inversor());
                     case '$' -> this.mapa[i][j] = new Terra(new Fi());
                     case 'T' -> this.mapa[i][j] = new Terra(new Teletransportador());
-
                 }
                 caselles++;
             }
         }
-        System.out.println(Arrays.deepToString(this.mapa));
     }
-
+    public Casella getCasella(int px, int py){
+        return this.mapa[px][py];
+    }
+    public boolean CasellaFi(int px, int py){
+        return this.mapa[px][py].artifact instanceof Fi;
+    }
     public int getColumns(String m){
         int columnes = 0;
         for (int i = 0; i < m.length(); i++) {
@@ -61,16 +68,23 @@ public class Mapa {
     public Casella[][] getMapa() {
         return mapa;
     }
+
     private String normalizemapa(String m){
         return m.replace(System.getProperty("line.separator") , "");
     }
-    public void drawMap(){
+    public void drawMap(int botpx, int botpy){
         for (int i = 0; i < this.mapa.length; i++) {
             for (int j = 0; j < this.mapa[i].length; j++) {
-                System.out.print(this.mapa[i][j].toString());
+                if (i == botpx && j == botpy)
+                    System.out.print("X");
+                else
+                    System.out.print(this.mapa[i][j].toString());
             }
             System.out.println("");
         }
     }
 
+    public int[] getBot() {
+        return botpos;
+    }
 }
