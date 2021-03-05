@@ -3,6 +3,21 @@ package ROBOT;
 import MAPA.Mapa;
 import MAPA.Terra;
 
+/**
+ *         String mapa = "" +
+ *                 "##########\n" +
+ *                 "# X      #\n" +
+ *                 "######## #\n" +
+ *                 "#        #\n" +
+ *                 "# ######################\n" +
+ *                 "# #   #               $#\n" +
+ *                 "#   #   #  #############\n" +
+ *                 "############";
+ *
+ *                 DDDDDDSSAAAAAAASSSDDWDDSDDWDDDDDDDDDDDDDDD
+ * */
+
+
 public class RandomPathFinder {
     Mapa mapa;
     Robot robot;
@@ -17,8 +32,6 @@ public class RandomPathFinder {
         for (int i = 0; i < times; i++) {
             FindPath();
             this.robot.Teleport(this.mapa.getBot());
-
-            System.out.println(this.bestPath);
         }
     }
 
@@ -27,7 +40,7 @@ public class RandomPathFinder {
         int contador = 0;
         while(!End()){
             contador++;
-            if (contador > 1000)
+            if (contador > 5000)
                 break;
             String s = randomMovement();
             if (isPossible(s)){
@@ -36,7 +49,6 @@ public class RandomPathFinder {
             }
         }
         String path = sb.toString();
-        System.out.println(path);
         if (this.bestPath.equals("") || path.length() <= this.bestPath.length())
             this.bestPath = path;
 

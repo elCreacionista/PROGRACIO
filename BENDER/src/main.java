@@ -1,6 +1,7 @@
 import MAPA.Casella;
 import MAPA.Terra;
 import ROBOT.RandomPathFinder;
+import ROBOT.SemiPathFinder;
 
 import java.util.Scanner;
 
@@ -8,18 +9,31 @@ public class main {
     static Bender bender;
     public static void main(String[] args) {
         String mapa = "" +
-                "#########\n" +
-                "##X  #  #\n" +
-                "##      #\n" +
-                "#  #    #\n" +
-                "####    #\n" +
-                "# $     #\n" +
-                "#  #  I #\n" +
-                "#########";
+                "########################\n" +
+                "# X                    #\n" +
+                "#                      #\n" +
+                "#                      #\n" +
+                "#                      #\n" +
+                "#                      #\n" +
+                "#                      #\n" +
+                "#                      #\n" +
+                "#                      #\n" +
+                "#                      #\n" +
+                "#                      #\n" +
+                "#                      #\n" +
+                "#                     $#\n" +
+                "########################";
         System.out.println(mapa);
-        RandomPathFinder rpf = new RandomPathFinder(mapa);
+        SemiPathFinder spf = new SemiPathFinder(mapa);
 
-        rpf.doPath(50);
+        spf.doPath(100);
+        spf.improvePath();
+        spf.improvePath();
+        spf.improvePath();
+        spf.improvePath();
+        spf.improvePath();
+        spf.improvePath();
+
 
 
         /*String mapa = "#  # #\n" +
