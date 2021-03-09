@@ -2,28 +2,36 @@ BENDER és un robot autònom que es mou per un tablero i ha de arribar al final 
 
 El robot segueix unes instruccions molt bàsiques: Ves cap al sud, si no pots gira a la dreta.
 
-PUNTS A SEGUIR-
-
--Com entendre la pràctica.
--Com entendre les variables de entrada.
--Les classes del mapa.
-
--Que es el robot.
--On està el robot.
--Com es mou.
--Quan acaba.
-
--Dispositius que pot emprar el robot.
--Com empra els inversors.
--Com empra els teleportadors.
--Com determinar si és en un bucle.
+                 
+               -PUNTS A SEGUIR-
 
 
--FASE 2 DE LA PRACTICA-
+           -FASE 1 DE LA PRACTICA-
 
--Com funciona el pathfinding.
--Quins pathfindings existeixen i la seva utilidad.
--Quin he empleat jo i perque.
--
+    -Com entendre la pràctica.
+    -Com entendre les variables de entrada.
+    -Les classes del mapa.
+
+    -Que es el robot.
+    -On està el robot.
+    -Com es mou.
+    -Quan acaba.
+
+    -Dispositius que pot emprar el robot.
+    -Com empra els inversors.
+    -Com empra els teleportadors.
+    -Com determinar si és en un bucle.
 
 
+           -FASE 2 DE LA PRACTICA-
+
+    -Com funciona el pathfinding.
+    -Quins pathfindings existeixen i la seva utilidad.
+    -Quin he empleat jo i perque.
+    -
+
+
+           -OPINIO DE LA PRACTICA-
+
+    -Dolenta perque
+    -M'ha agradat perque
