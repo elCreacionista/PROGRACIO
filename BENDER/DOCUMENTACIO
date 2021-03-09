@@ -1,1 +1,3 @@
-BENDER
+BENDER és un robot autònom que es mou per un tablero i ha de arribar al final d'aquest.
+
+El robot segueix unes instruccions molt bàsiques: Ves cap al sud, si no pots gira a la dreta.
