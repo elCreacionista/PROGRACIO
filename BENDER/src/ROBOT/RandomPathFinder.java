@@ -1,5 +1,6 @@
 package ROBOT;
 
+import MAPA.Casella;
 import MAPA.Mapa;
 import MAPA.Terra;
 
@@ -60,28 +61,31 @@ public class RandomPathFinder {
         int posx = this.robot.posX;
         int posy = this.robot.posY;
         switch (s){
-            case "A" -> posy --;
+            case "W" -> posy --;
             case "S" -> posx++;
-            case "D" -> posy ++;
-            case "W" -> posx--;
+            case "E" -> posy ++;
+            case "N" -> posx--;
         }
         return this.mapa.getCasella(posx, posy) instanceof Terra;
     }
     public String randomMovement(){
         return switch ((int) Math.floor(Math.random() * 5)) {
-            case 0 -> "A";
+            case 0 -> "W";
             case 1 -> "S";
-            case 2 -> "W";
-            case 3 -> "D";
+            case 2 -> "E";
+            case 3 -> "N";
             default -> "S";
         };
     }
+    private Casella getCasella(){
+        return this.mapa.getCasella(robot.posX, robot.posY);
+    }
     public void movebot(String m){
         switch (m){
-            case "A" -> this.robot.moveWest();
-            case "S" -> this.robot.moveSouth();
-            case "D" -> this.robot.moveEast();
-            case "W" -> this.robot.moveNorth();
+            case "W" -> this.robot.moveWest(getCasella());
+            case "S" -> this.robot.moveSouth(getCasella());
+            case "E" -> this.robot.moveEast(getCasella());
+            case "N" -> this.robot.moveNorth(getCasella());
         }
     }
 }

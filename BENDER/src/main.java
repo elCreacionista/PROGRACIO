@@ -8,9 +8,9 @@ import java.util.Scanner;
 public class main {
     static Bender bender;
     public static void main(String[] args) {
-        String mapa = "" +
+        /*String mapa = "" +
                 "########################\n" +
-                "# X                    #\n" +
+                "#X                     #\n" +
                 "#                      #\n" +
                 "#                      #\n" +
                 "#                      #\n" +
@@ -22,26 +22,15 @@ public class main {
                 "#                      #\n" +
                 "#                      #\n" +
                 "#                     $#\n" +
-                "########################";
-        System.out.println(mapa);
-        SemiPathFinder spf = new SemiPathFinder(mapa);
+                "########################";*/
+        String mapa =   "########################\n" +
+                        "#X                    T#\n" +
+                        "#                      #\n" +
+                        "#                      #\n" +
+                        "#T                    $#\n" +
+                        "########################";
+        bender = new Bender(mapa);
+        System.out.println(bender.run());
 
-        spf.doPath(100);
-        spf.improvePath();
-        spf.improvePath();
-        spf.improvePath();
-        spf.improvePath();
-        spf.improvePath();
-        spf.improvePath();
-
-
-
-        /*String mapa = "#  # #\n" +
-                      "# #  #\n" +
-                      "##I  #\n" +
-                      "# II$#";*/
-        /*bender = new Bender(mapa);
-        Scanner sc = new Scanner(System.in);
-        */
     }
 }

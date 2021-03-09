@@ -1,11 +1,15 @@
 package ROBOT;
 
+import MAPA.Casella;
 import MAPA.Mapa;
+import MAPA.OBJECTES.Inversor;
+import MAPA.OBJECTES.Teletransportador;
 
 public class Robot {
 
     public int posX;
     public int posY;
+    public boolean invertit = false;
 
     public Robot(int[] pos){
         this.posX = pos[0];
@@ -20,16 +24,27 @@ public class Robot {
         this.posX = px;
         this.posY = py;
     }
-    public void moveNorth(){
+    private void invertir(){
+        this.invertit = !this.invertit;
+    }
+    public void moveNorth(Casella c){
         this.posX --;
+        if (c.artifact instanceof Inversor)
+            this.invertir();
     }
-    public void moveWest(){
+    public void moveWest(Casella c){
         this.posY --;
+        if (c.artifact instanceof Inversor)
+            this.invertir();
     }
-    public void moveSouth(){
+    public void moveSouth(Casella c){
         this.posX ++;
+        if (c.artifact instanceof Inversor)
+            this.invertir();
     }
-    public void moveEast(){
+    public void moveEast(Casella c){
         this.posY ++;
+        if (c.artifact instanceof Inversor)
+            this.invertir();
     }
 }

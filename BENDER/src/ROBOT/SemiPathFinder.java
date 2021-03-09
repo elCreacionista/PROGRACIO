@@ -27,7 +27,7 @@ public class SemiPathFinder extends RandomPathFinder{
     }
     private boolean contraris(char a, char b){
         return switch ("" + a + b) {
-            case "AD", "DA", "WS", "SW" -> true;
+            case "EW", "WE", "NS", "SN" -> true;
             default -> false;
         };
     }

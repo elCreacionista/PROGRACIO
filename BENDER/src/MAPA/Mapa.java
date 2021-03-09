@@ -5,13 +5,20 @@ import MAPA.OBJECTES.Fi;
 import MAPA.OBJECTES.Inversor;
 import MAPA.OBJECTES.Teletransportador;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Mapa {
-    int[] botpos;
+    int[] initialbotpos;
     Casella[][] mapa;
+    public List<int[]> Teletransportadors;
     public Mapa(String mapa){
+        Teletransportadors = new ArrayList<>();
         this.CrearMapa(mapa);
+    }
+
+    public List<int[]> getTeletransportadors() {
+        return Teletransportadors;
     }
 
     private void CrearMapa(String mapa){
@@ -26,12 +33,15 @@ public class Mapa {
                     case '#' -> this.mapa[i][j] = new Paret();
                     case 'X' -> {
                         this.mapa[i][j] = new Terra(new Buid());
-                        this.botpos = new int[]{i, j};
+                        this.initialbotpos = new int[]{i, j};
                     }
                     case ' ' -> this.mapa[i][j] = new Terra(new Buid());
                     case 'I' -> this.mapa[i][j] = new Terra(new Inversor());
                     case '$' -> this.mapa[i][j] = new Terra(new Fi());
-                    case 'T' -> this.mapa[i][j] = new Terra(new Teletransportador());
+                    case 'T' -> {
+                        this.mapa[i][j] = new Terra(new Teletransportador());
+                        this.Teletransportadors.add(new int[]{i,j});
+                    }
                 }
                 caselles++;
             }
@@ -85,6 +95,6 @@ public class Mapa {
     }
 
     public int[] getBot() {
-        return botpos;
+        return initialbotpos;
     }
 }

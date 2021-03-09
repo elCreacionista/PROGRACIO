@@ -1,31 +1,16 @@
 import MAPA.Mapa;
+import ROBOT.Caminar;
 import ROBOT.Robot;
 
 public class Bender {
-    Mapa mapa;
-    Robot robot;
+    Caminar c;
 
 
-    public void movebot(String m){
-        switch (m){
-            case "A" -> this.robot.moveWest();
-            case "S" -> this.robot.moveSouth();
-            case "D" -> this.robot.moveEast();
-            case "W" -> this.robot.moveNorth();
-        }
-    }
     Bender(String mapa){
-        this.mapa = new Mapa(mapa);
-        this.robot = new Robot(this.mapa.getBot());
+        this.c = new Caminar(mapa);
     }
     public String run(){
-        return "SSS";
+        return this.c.FindPath();
     }
 
-    public Mapa getMapa() {
-        return mapa;
-    }
-   public void drawMap(){
-        this.mapa.drawMap(this.robot.posX, this.robot.posY);
-   }
 }

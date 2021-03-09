@@ -4,7 +4,7 @@ import MAPA.OBJECTES.Artifact;
 
 public abstract class Casella {
     boolean caminable;
-    Artifact artifact;
+    public Artifact artifact;
     Casella(Artifact a){
         this.artifact = a;
     }
