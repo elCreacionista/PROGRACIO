@@ -1,7 +1,7 @@
-FER EL TELEPORTADOR DE FORMA QUE CADA TELETRANSPORTADOR TENGUI UN TELEPORTER RELACIONAT,
-AIXI QUAN EL ROBOT TREPITJI LA CASELLA DEL TELETRANSPORTADOR JA DIRECTAMENT ES MOGUI AL GERMÀ D'AQUEST.
+   ---   FER EL TELEPORTADOR DE FORMA QUE CADA TELETRANSPORTADOR TENGUI UN TELEPORTER RELACIONAT,
+   ---   AIXI QUAN EL ROBOT TREPITJI LA CASELLA DEL TELETRANSPORTADOR JA DIRECTAMENT ES MOGUI AL GERMÀ D'AQUEST.
 
-I NOMES AIXI TOTA LA PARAFERNALIA ES QUEDA DINS LA CLASE MAPA I RELACIONATS, I ROBOT I CAMINAR QUEDA MES NET QUE MAI.
+   ---   I NOMES AIXI TOTA LA PARAFERNALIA ES QUEDA DINS LA CLASE MAPA I RELACIONATS, I ROBOT I CAMINAR QUEDA MES NET QUE MAI.
 
 
 
@@ -18,7 +18,20 @@ El robot segueix unes instruccions molt bàsiques: Ves cap al sud, si no pots gi
            -FASE 1 DE LA PRACTICA-
 
     -Com entendre la pràctica.
+      En aquesta pràctica hem de implementar una classe de java anomenada Bender, amb el seguent esquelet: 
+                                //INSETAR L'ESQUELET DEL CLASSROOM// 
+      Podem veure que la classe té un constructor i un mètode anomenat run.
+      El constructor accepta un String (cadena de caràcters) de la cual treurem el mapa.
+      run() retorna un String que representa el camí que s'ha de seguir per completar aquest nivell.
+      
     -Com entendre les variables de entrada.
+      Hem dit que el constructor de Bender accepta un String i el transformarem en un mapa, però què vol dir això?
+        Primer veurem el valor del String 
+                    //INSERTAR L'STRING//
+        Es veu com aquest string anomenat 'mapa' té una suma de cadenes de text, Aquesta suma concatena //X// numero de línies
+        Cada cadena acaba amb el símbol '/n', això representa un sol caràcter, el cual ordena a java que faci un salt de línia.
+        
+    -Com transformar el String en un objecte mapa.
     -Les classes del mapa.
 
     -Que es el robot.
