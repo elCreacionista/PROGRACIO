@@ -32,6 +32,19 @@ El robot segueix unes instruccions molt bàsiques: Ves cap al sud, si no pots gi
         Cada cadena acaba amb el símbol '/n', això representa un sol caràcter, el cual ordena a java que faci un salt de línia.
         
     -Com transformar el String en un objecte mapa.
+        Primer de tot feim un doble array de Caselles, per inicialitzarlo necesitam saber el nombre de una dimensió, per fer-ho
+        contam la cuantitats de salts de línia que hi ha dins l'String i li sumam 1 perquè la darrera fila no té cap salt.
+        Ja tenim la primera dimensió.
+        Per saber la segona no basta amb el tamany del primer tram de l'String. perqué en cas de que el mapa sigui irregular
+        no ens serviria.
+        Per fer això cream un Array de Integers, del tamany que hem calculat abans, 
+        Ara necesitarem una variable per dur la conta de a quina fila estam, l'anomenarem actual i comença amb el valor 0.
+        Feim un bucle iterant l'String on sumarem 1 a la posició actual del array si el caràcter no és un salt de línia i
+        sumarem 1 a la variable actual si ho és.
+        
+        Amb això tenim un array amb les dimensións del mapa.
+        Eliminam tots els salts de línea del String mapa ja que no els necesitarem més i estorbaran mes que be faran.
+        Aixi ja podem fer un bucle doble per iterar i anar creant un mapa de caselles depenent del caràcter on ens trobem actualment.
     -Les classes del mapa.
 
     -Que es el robot.
