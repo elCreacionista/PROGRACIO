@@ -17,8 +17,8 @@ public class main {
 
         byte[] ar = new byte[560];
         for (int i = 0; i < ar.length; i++) {
-            if (i < 260)
-            ar[i] = 100;
+            if (i <= 260)
+                ar[i] = 100;
             else ar[i] = (byte) 101;
         }
 
@@ -28,7 +28,7 @@ public class main {
     }
     private static void t(byte[] expected, byte[] input) throws Exception {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        RLE.compress(new ByteArrayInputStream(input), bos);
+        RLE.decompress(new ByteArrayInputStream(input), bos);
     }
 
 }
