@@ -65,16 +65,24 @@ public class RLE {
 
         for (int i = 1; i < arr.length; i++) {
 
+            if (repeat){
+                anterior = arr[i];
+                repeat = false;
+                continue;
+            }
 
             if (anterior != arr[i]){
                 writeDecompressInOS(os, anterior,1);
+                repeat = false;
                 anterior = arr[i];
-                break;
+                continue;
             }
-                writeDecompressInOS(os, anterior, arr[i + 1] + 1);
+            writeDecompressInOS(os, anterior, (arr[++i] & 0xFF) + 2);
+            repeat = true;
         }
-
-        System.out.print(anterior);
+        if (!repeat){
+            writeDecompressInOS(os, anterior,1);
+        }
         System.out.println();
     }
 }
